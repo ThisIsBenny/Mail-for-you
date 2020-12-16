@@ -1,0 +1,127 @@
+$bgcolor: #99c;
+$textcolor: #666;
+$envelop: #eee;
+$paper: #fff;
+
+body {
+  background: $bgcolor;
+}
+
+.paper {
+  width: 20em;
+  height: 10em;
+  position: absolute;
+  display: block;
+  top: 2em;
+  left: 1em;
+  background: $paper;
+  -webkit-transition: 1.5s ease-in-out;
+  -moz-transition: 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+  z-index: 1;
+  text-align: center;
+  padding: 0em;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  h1 {
+    color: $textcolor;
+    font-size: 2.5em;
+    position: relative;
+    z-index: 1;
+    transition: all 1.5s ease-in-out;
+  }
+
+  img {
+    width: 80%;
+    margin-top: 10px
+  }
+}
+
+.back {
+  display: block;
+  position: relative;
+  background: darken($envelop, 20%);
+  top: 0;
+  height: 0;
+  width: 22em;
+  height: 12em;
+  content: "";
+  -webkit-transition: 1.5s ease-in-out;
+  -moz-transition: 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+  box-shadow: 0 0 1em rgba(darken($bgcolor, 30%), 0.15);
+  z-index: 0;
+}
+
+.envelop {
+  font-family: "Indie Flower", sans-serif;
+  padding: 10em 0em 0em 0em;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: all 1.5s ease-in-out;
+  min-height: 100vh;
+
+  .cover {
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    height: 1em;
+    display: block;
+    -moz-transform: translate(-50%, 0%) scaleY(1);
+    -webkit-transform: translate(-50%, 0%) scaleY(1);
+    transform: translate(-50%, 0%) scaleY(1);
+    -webkit-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    margin: 0 auto;
+    border: 11em solid transparent;
+    border-top: 10em solid lighten($envelop, 15%);
+    -webkit-transition: all 1.5s ease-in-out;
+    -moz-transition: all 1.5s ease-in-out;
+    transition: z-index 1.5s ease-in-out, transform 1.5s ease-in-out, border-top 1.5s ease-in-out;
+    transition-delay: 1.5s;
+    z-index: 30;
+  }
+
+  .bottom {
+    width: 0;
+    margin: 0 auto;
+    position: relative;
+    top: 0em;
+    display: block;
+    border-left: 11em solid $envelop;
+    border-right: 11em solid $envelop;
+    border-bottom: 5em solid $envelop;
+    border-top: 7em solid transparent;
+    -webkit-transition: 1.5s ease-in-out;
+    -moz-transition: 1.5s ease-in-out;
+    transition: 1.5s ease-in-out;
+    z-index: 100;
+  }
+}
+
+.active {
+  .back {
+    top: 10em;
+    z-index: 0;
+
+    .paper {
+      top: -15em;
+      z-index: 45;
+      height: 25em;
+      transition: z-index 1.5s ease-in-out, top 1.5s ease-in-out, height 1.5s ease-in-out;
+      transition-delay: 1.5s;
+    }
+  }
+
+  .cover {
+    border-top: 10em solid $envelop;
+    -moz-transform: translate(-50%, -100%) scaleY(-1);
+    -webkit-transform: translate(-50%, -100%) scaleY(-1);
+    transform: translate(-50%, -100%) scaleY(-1);
+    z-index: 0;
+    transition-delay: 0s;
+  }
+}
