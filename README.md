@@ -1,4 +1,4 @@
-# happyNews
+# Mail for you
 
 ## Build Setup
 
