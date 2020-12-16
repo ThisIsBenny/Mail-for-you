@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-spacer />
-    <envelop v-if="data" :message="data.message" :image="data.image" />
+    <envelop v-if="data" :message="data.message" :image="data.image" :confetti="data.confetti" />
     <v-spacer />
   </v-row>
 </template>

@@ -21,6 +21,10 @@ export default {
     image: {
       type: String,
       default: null
+    },
+    confetti: {
+      type: Boolean,
+      default: true
     }
   },
   data: () => {
@@ -31,7 +35,7 @@ export default {
   methods: {
     toggle: function () {
       this.isActive = !this.isActive
-      if (this.isActive) {
+      if (this.isActive && this.confetti) {
         const _this = this
         setTimeout(() => {
           _this.$confetti.start()

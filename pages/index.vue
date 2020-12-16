@@ -10,6 +10,10 @@
       <v-form v-model="valid">
         <v-text-field v-model="message" required label="Nachricht" :rules="messageRules" :counter="50" />
         <v-text-field v-model="image" label="Bild-URL (optional)" :rules="imageRules" />
+        <v-switch
+          v-model="confetti"
+          label="Konfetti-Animation beim öffnen"
+        />
       </v-form>
     </v-card-text>
     <v-card-actions>
@@ -42,7 +46,7 @@
     <v-divider class="mt-4" />
     <v-card-text class="text-center">
       Made with
-      <v-icon color="red" @click="trackClicks">
+      <v-icon color="red">
         {{ mdiHeart }}
       </v-icon>
       in Düsseldorf
@@ -115,14 +119,16 @@ export default {
         v => v.length === 0 || /\.(jpg|jpeg)$/.test(v) || 'Keine gültige Bild-URL. Es werden nur JPEG Bilder unterstützt.'
       ],
       message: '',
-      image: ''
+      image: '',
+      confetti: true
     }
   },
   computed: {
     url: function () {
       const json = JSON.stringify({
         message: this.message,
-        image: this.image
+        image: this.image,
+        confetti: this.confetti
       })
       return window.location.protocol + '//' + window.location.host + '/' + Buffer.from(json).toString('base64')
     }
