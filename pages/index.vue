@@ -12,6 +12,7 @@
         <v-text-field v-model="image" label="Bild-URL (optional)" :rules="imageRules" />
         <v-switch
           v-model="confetti"
+          inset
           label="Konfetti-Animation beim öffnen"
         />
       </v-form>
@@ -20,7 +21,7 @@
       <v-btn
         class="mr-2"
         small
-        color="success"
+        color="primary"
         outlined
         :disabled="!valid"
         @click="generateEnvelop()"
@@ -61,15 +62,27 @@
         </v-card-title>
 
         <v-card-text>
-          Dein Brief ist erstellt und bereit zum versenden:
-          <v-row>
-            <v-col cols="3">
-              URL:
-            </v-col>
-            <v-col cols="9" @click="addToClipboard(url)">
-              {{ url }}
-            </v-col>
-          </v-row>
+          <p>Dein Brief ist erstellt und bereit zum versenden:</p>
+          <v-btn text color="primary" @click="addToClipboard(url)">
+            <v-icon left>
+              {{ mdiClipboardOutline }}
+            </v-icon>
+            Link kopieren
+          </v-btn>
+          <br>
+          <v-btn text color="primary" :href="'sms:&body=Ich habe einen Brief für dich: ' + url">
+            <v-icon left>
+              {{ mdiMessageText }}
+            </v-icon>
+            Als SMS versenden
+          </v-btn>
+          <br>
+          <v-btn text color="primary" :href="'whatsapp://send?text=Ich habe einen Brief für dich: ' + url">
+            <v-icon left>
+              {{ mdiWhatsapp }}
+            </v-icon>
+            Als WhatsApp versenden
+          </v-btn>
         </v-card-text>
 
         <v-divider />
@@ -100,7 +113,7 @@
 </template>
 
 <script>
-import { mdiEmail, mdiEye, mdiCheck, mdiHeart } from '@mdi/js'
+import { mdiEmail, mdiEye, mdiCheck, mdiHeart, mdiClipboardOutline, mdiMessageText, mdiWhatsapp } from '@mdi/js'
 export default {
   data: () => {
     return {
@@ -108,6 +121,9 @@ export default {
       mdiEye,
       mdiCheck,
       mdiHeart,
+      mdiClipboardOutline,
+      mdiMessageText,
+      mdiWhatsapp,
       dialog: false,
       addedToClipboard: false,
       valid: false,
