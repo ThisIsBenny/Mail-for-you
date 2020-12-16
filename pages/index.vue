@@ -10,11 +10,7 @@
       <v-form v-model="valid">
         <v-text-field v-model="message" required label="Nachricht" :rules="messageRules" :counter="50" />
         <v-text-field v-model="image" label="Bild-URL (optional)" :rules="imageRules" />
-        <v-switch
-          v-model="confetti"
-          inset
-          label="Konfetti-Animation beim öffnen"
-        />
+        <v-checkbox v-model="confetti" label="Konfetti-Animation" />
       </v-form>
     </v-card-text>
     <v-card-actions>
@@ -162,7 +158,7 @@ export default {
       return window.location.protocol + '//' + window.location.host + '/' + Buffer.from(json).toString('base64')
     },
     shareSupport: function () {
-      return navigator.share !== undefined
+      return navigator !== undefined && navigator.share !== undefined
     }
   },
   methods: {
