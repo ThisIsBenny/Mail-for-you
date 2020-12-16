@@ -12,7 +12,6 @@
         <v-text-field v-model="image" label="Bild-URL (optional)" :rules="imageRules" />
       </v-form>
     </v-card-text>
-    <v-divider />
     <v-card-actions>
       <v-btn
         class="mr-2"
@@ -40,6 +39,14 @@
         Vorschau
       </v-btn>
     </v-card-actions>
+    <v-divider class="mt-4" />
+    <v-card-text class="text-center">
+      Made with
+      <v-icon color="red" @click="trackClicks">
+        {{ mdiHeart }}
+      </v-icon>
+      in Düsseldorf
+    </v-card-text>
     <v-dialog
       v-model="dialog"
       max-width="500"
@@ -89,13 +96,14 @@
 </template>
 
 <script>
-import { mdiEmail, mdiEye, mdiCheck } from '@mdi/js'
+import { mdiEmail, mdiEye, mdiCheck, mdiHeart } from '@mdi/js'
 export default {
   data: () => {
     return {
       mdiEmail,
       mdiEye,
       mdiCheck,
+      mdiHeart,
       dialog: false,
       addedToClipboard: false,
       valid: false,
