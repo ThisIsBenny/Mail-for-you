@@ -63,26 +63,38 @@
 
         <v-card-text>
           <p>Dein Brief ist erstellt und bereit zum versenden:</p>
-          <v-btn text color="primary" @click="addToClipboard(url)">
-            <v-icon left>
-              {{ mdiClipboardOutline }}
-            </v-icon>
-            Link kopieren
-          </v-btn>
-          <br>
-          <v-btn text color="primary" :href="'sms:&body=Ich habe einen Brief für dich: ' + url">
-            <v-icon left>
-              {{ mdiMessageText }}
-            </v-icon>
-            Als SMS versenden
-          </v-btn>
-          <br>
-          <v-btn text color="primary" :href="'whatsapp://send?text=Ich habe einen Brief für dich: ' + url">
-            <v-icon left>
-              {{ mdiWhatsapp }}
-            </v-icon>
-            Als WhatsApp versenden
-          </v-btn>
+          <v-row>
+            <v-btn text color="primary" @click="addToClipboard(url)">
+              <v-icon left>
+                {{ mdiClipboardOutline }}
+              </v-icon>
+              Link kopieren
+            </v-btn>
+          </v-row>
+          <v-row>
+            <v-btn v-if="shareSupport" text color="primary" @click="share(url)">
+              <v-icon left>
+                {{ mdiExportVariant }}
+              </v-icon>
+              Link teilen
+            </v-btn>
+          </v-row>
+          <v-row>
+            <v-btn text color="primary" :href="'sms:&body=Ich habe einen Brief für dich: ' + url">
+              <v-icon left>
+                {{ mdiMessageText }}
+              </v-icon>
+              Als SMS versenden
+            </v-btn>
+          </v-row>
+          <v-row>
+            <v-btn text color="primary" :href="'whatsapp://send?text=Ich habe einen Brief für dich: ' + url">
+              <v-icon left>
+                {{ mdiWhatsapp }}
+              </v-icon>
+              Als WhatsApp versenden
+            </v-btn>
+          </v-row>
         </v-card-text>
 
         <v-divider />
@@ -113,7 +125,7 @@
 </template>
 
 <script>
-import { mdiEmail, mdiEye, mdiCheck, mdiHeart, mdiClipboardOutline, mdiMessageText, mdiWhatsapp } from '@mdi/js'
+import { mdiEmail, mdiEye, mdiCheck, mdiHeart, mdiClipboardOutline, mdiMessageText, mdiWhatsapp, mdiExportVariant } from '@mdi/js'
 export default {
   data: () => {
     return {
@@ -122,6 +134,7 @@ export default {
       mdiCheck,
       mdiHeart,
       mdiClipboardOutline,
+      mdiExportVariant,
       mdiMessageText,
       mdiWhatsapp,
       dialog: false,
@@ -147,6 +160,9 @@ export default {
         confetti: this.confetti
       })
       return window.location.protocol + '//' + window.location.host + '/' + Buffer.from(json).toString('base64')
+    },
+    shareSupport: function () {
+      return navigator.share !== undefined
     }
   },
   methods: {
@@ -156,6 +172,14 @@ export default {
     addToClipboard: function (text) {
       navigator.clipboard.writeText(text)
       this.addedToClipboard = true
+    },
+    share: async function (url) {
+      try {
+        await navigator.share({
+          url
+        })
+      } catch (e) {
+      }
     }
   }
 }
