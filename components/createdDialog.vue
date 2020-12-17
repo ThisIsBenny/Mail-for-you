@@ -6,6 +6,7 @@
     "copyLink": "Copy link",
     "copiedMessage": "URL was added to the clipboard.",
     "shareLink": "Share link",
+    "shareTitle": "Mail for you",
     "sms": "Send as SMS",
     "whatsapp": "Send as WhatsApp",
     "messageText": "I have a mail for you:",
@@ -17,6 +18,7 @@
     "copyLink": "Link kopieren",
     "copiedMessage": "URL wurde zur Zwischenablage hinzugefügt.",
     "shareLink": "Link teilen",
+    "shareTitle": "Post für dich",
     "sms": "Als SMS versenden",
     "whatsapp": "Als WhatsApp versenden",
     "messageText": "Ich habe einen Brief für dich:",
@@ -133,6 +135,7 @@ export default {
     share: async function (url) {
       try {
         await navigator.share({
+          title: this.$t('shareTitle'),
           url
         })
       } catch (e) {
