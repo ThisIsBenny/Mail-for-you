@@ -6,6 +6,10 @@ export default {
     routes: ['/de']
   },
 
+  serverMiddleware: [
+    '~/server-middleware/cache.js'
+  ],
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Mail for you',
