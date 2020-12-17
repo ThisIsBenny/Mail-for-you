@@ -1,0 +1,4 @@
+.nuxt
+.vercel
+.vercel_cache
+node_modules

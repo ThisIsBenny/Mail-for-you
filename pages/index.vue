@@ -79,8 +79,7 @@
         outlined
         small
         :disabled="!valid"
-        :href="url"
-        target="_blank"
+        @click="preview()"
       >
         <v-icon left>
           {{ mdiEye }}
@@ -131,6 +130,9 @@ export default {
     }
   },
   methods: {
+    preview: function () {
+      window.open(this.url, '_blank');
+    },
     generateEnvelop: function () {
       this.dialog = true
     }
