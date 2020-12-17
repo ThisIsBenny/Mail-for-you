@@ -3,7 +3,7 @@ export default {
   target: 'static',
   ssr: true,
   generate: {
-    routes: ['/', '/de']
+    routes: ['/de']
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
