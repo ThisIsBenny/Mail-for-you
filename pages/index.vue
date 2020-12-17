@@ -104,7 +104,6 @@
 import { mdiEmail, mdiEye, mdiHeart } from '@mdi/js'
 import createdDialog from '../components/createdDialog.vue'
 export default {
-  cache: true,
   components: { createdDialog },
   data: () => {
     return {

@@ -52,7 +52,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@pi0/nuxt-cache',
     'nuxt-i18n'
   ],
 
