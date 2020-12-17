@@ -119,6 +119,9 @@ export default {
   },
   computed: {
     url: function () {
+      if (!process.client) {
+        return ''
+      }
       const json = JSON.stringify({
         message: this.message,
         image: this.image,

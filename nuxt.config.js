@@ -1,7 +1,7 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-  ssr: false,
+  ssr: true,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -81,9 +81,6 @@ export default {
     defaultLocale: 'en',
     seo: false,
     vueI18nLoader: true,
-    baseUrl: () => {
-      return window.location.protocol + '//' + window.location.host
-    },
     detectBrowserLanguage: {
       alwaysRedirect: true,
       fallbackLocale: 'en',

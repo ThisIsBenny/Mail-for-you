@@ -124,15 +124,24 @@ export default {
   },
   computed: {
     shareSupport: function () {
+      if (!process.client) {
+        return false
+      }
       return navigator !== undefined && navigator.share !== undefined
     }
   },
   methods: {
     clipboard: function (text) {
+      if (!process.client) {
+        return
+      }
       navigator.clipboard.writeText(text)
       this.addedToClipboard = true
     },
     share: async function (url) {
+      if (!process.client) {
+        return
+      }
       try {
         await navigator.share({
           title: this.$t('shareTitle'),
