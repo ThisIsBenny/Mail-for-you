@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     preview: function () {
-      window.open(this.url, '_blank');
+      window.open(this.url, '_blank')
     },
     generateEnvelop: function () {
       this.dialog = true

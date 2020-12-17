@@ -9,7 +9,12 @@
 <script>
 export default {
   fetch () {
-    this.data = JSON.parse(Buffer.from(this.$route.params.slug, 'base64').toString())
+    try {
+      const json = Buffer.from(this.$route.params.slug, 'base64').toString()
+      this.data = JSON.parse(json)
+    } catch (e) {
+      this.$nuxt.error({ statusCode: 404, message: 'Page not found' })
+    }
   },
   data: () => {
     return {

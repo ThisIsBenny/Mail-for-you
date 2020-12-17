@@ -3,6 +3,7 @@ export default {
   target: 'static',
   ssr: true,
   generate: {
+    fallback: '404.html',
     routes: ['/de']
   },
 
