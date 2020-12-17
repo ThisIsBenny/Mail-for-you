@@ -132,6 +132,11 @@ export default {
     generateEnvelop: function () {
       this.dialog = true
     }
+  },
+  head () {
+    return {
+      title: this.$t('title')
+    }
   }
 }
 </script>

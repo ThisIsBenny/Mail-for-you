@@ -1,3 +1,13 @@
+<i18n>
+{
+  "en": {
+    "title": "Mail for you"
+  },
+  "de": {
+    "title": "Post für dich"
+  }
+}
+</i18n>
 <template>
   <v-row>
     <v-spacer />
@@ -14,6 +24,11 @@ export default {
   data: () => {
     return {
       data: null
+    }
+  },
+  head () {
+    return {
+      title: this.$t('title')
     }
   }
 }
