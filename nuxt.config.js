@@ -33,14 +33,14 @@ export default {
       { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-      { rel: 'manifest', href: '/manifest.json' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Indie+Flower' }
+      { rel: 'manifest', href: '/manifest.json' }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    '@/assets/css/main.scss'
+    '@/assets/main.css',
+    '@/assets/main.scss'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -97,7 +97,7 @@ export default {
   },
 
   vuetify: {
-    // customVariables: ['~/assets/css/variables.scss'],
+    // customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
       icons: 'mdiSvg'
     },
