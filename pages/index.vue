@@ -26,8 +26,8 @@
 </i18n>
 <template>
   <v-card class="mt-12">
-    <v-row>
-      <v-col cols="6">
+    <v-row class="mr-2" no-gutters>
+      <v-col cols="8">
         <v-card-title class="headline">
           <v-icon left>
             {{ mdiEmail }}
@@ -35,12 +35,11 @@
           {{ $t('title') }}
         </v-card-title>
       </v-col>
-      <v-spacer />
-      <v-col cols="3" class="text-right mx-4 my-auto">
-        <v-btn text depressed :to="switchLocalePath('de')">
+      <v-col cols="4" class="text-right my-auto">
+        <v-btn small text depressed :to="switchLocalePath('de')">
           DE
         </v-btn>
-        <v-btn text depressed :to="switchLocalePath('en')">
+        <v-btn small text depressed :to="switchLocalePath('en')">
           EN
         </v-btn>
       </v-col>
