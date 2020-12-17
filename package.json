@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "nuxt --port $PORT",
-    "local-dev": "vercel dev -A vercel.dev.json",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -18,7 +17,6 @@
     "vue-confetti": "^2.2.1"
   },
   "devDependencies": {
-    "nuxt-edge": "latest",
     "@mdi/js": "^5.8.55",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
