@@ -124,7 +124,7 @@ export default {
         image: this.image,
         confetti: this.confetti
       })
-      return window.location.protocol + '//' + window.location.host + '/' + Buffer.from(json).toString('base64')
+      return window.location.toString().replace(/\/$/, '') + '/' + Buffer.from(json).toString('base64')
     }
   },
   methods: {
