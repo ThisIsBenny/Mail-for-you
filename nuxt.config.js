@@ -81,6 +81,9 @@ export default {
     defaultLocale: 'en',
     seo: false,
     vueI18nLoader: true,
+    baseUrl: () => {
+      return window.location.protocol + '//' + window.location.host
+    },
     detectBrowserLanguage: {
       alwaysRedirect: true,
       fallbackLocale: 'en',
