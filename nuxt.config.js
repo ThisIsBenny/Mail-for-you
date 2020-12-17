@@ -90,7 +90,7 @@ export default {
     seo: false,
     vueI18nLoader: true,
     detectBrowserLanguage: {
-      alwaysRedirect: true,
+      alwaysRedirect: false,
       fallbackLocale: 'en',
       useCookie: true,
       cookieKey: 'i18n'
