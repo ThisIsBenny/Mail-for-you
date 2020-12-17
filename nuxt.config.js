@@ -56,8 +56,30 @@ export default {
   ],
 
   i18n: {
-    locales: ['de', 'en'],
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        isCatchallLocale: true
+      },
+      {
+        code: 'de',
+        iso: 'de-DE'
+      }
+    ],
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          title: 'Mail for you'
+        },
+        de: {
+          title: 'Post für dich'
+        }
+      }
+    },
     defaultLocale: 'en',
+    seo: false,
     vueI18nLoader: true,
     detectBrowserLanguage: {
       alwaysRedirect: true,
