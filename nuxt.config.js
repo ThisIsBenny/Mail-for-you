@@ -52,7 +52,20 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    'nuxt-i18n'
   ],
+
+  i18n: {
+    locales: ['de', 'en'],
+    defaultLocale: 'en',
+    vueI18nLoader: true,
+    detectBrowserLanguage: {
+      alwaysRedirect: true,
+      fallbackLocale: 'en',
+      useCookie: true,
+      cookieKey: 'i18n'
+    }
+  },
 
   vuetify: {
     // customVariables: ['~/assets/css/variables.scss'],
