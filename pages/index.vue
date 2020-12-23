@@ -88,19 +88,28 @@
       </v-btn>
     </v-card-actions>
     <v-divider class="mt-4" />
-    <v-card-text class="text-center">
-      Made with
-      <v-icon color="red">
-        {{ mdiHeart }}
-      </v-icon>
-      in Düsseldorf
-    </v-card-text>
+    <v-row>
+      <v-col cols="1">
+        <v-btn icon href="https://github.com/ThisIsBenny/Mail-for-you" target="_blank">
+          <v-icon>
+            {{ mdiGithub }}
+          </v-icon>
+        </v-btn>
+      </v-col>
+      <v-col offset="1" cols="8" class="text-center my-auto">
+        Made with
+        <v-icon color="red">
+          {{ mdiHeart }}
+        </v-icon>
+        in Düsseldorf
+      </v-col>
+    </v-row>
     <created-dialog :active.sync="dialog" :url="url" />
   </v-card>
 </template>
 
 <script>
-import { mdiEmail, mdiEye, mdiHeart } from '@mdi/js'
+import { mdiEmail, mdiEye, mdiHeart, mdiGithub } from '@mdi/js'
 import createdDialog from '../components/createdDialog.vue'
 export default {
   components: { createdDialog },
@@ -109,6 +118,7 @@ export default {
       mdiEmail,
       mdiEye,
       mdiHeart,
+      mdiGithub,
       dialog: false,
       valid: false,
       message: '',
